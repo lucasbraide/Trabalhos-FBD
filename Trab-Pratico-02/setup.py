@@ -27,6 +27,7 @@ for table in tables:
     cursor.execute(truncate_query)
     cursor.execute(drop_query)
 
+print("Setup executado com sucesso.")
 conn.commit()
 cursor.close()
 conn.close()

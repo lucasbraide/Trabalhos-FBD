@@ -21,6 +21,7 @@ cursor.execute("SELECT E.nome AS nome_embarcacao, COUNT(T.id_trp) as numero_trip
 
 tripulantes_embarcacao = cursor.fetchall()
 
+print("1- Retorne todas as embarcações e o número de tripulantes de cada embarcação.")
 for item in tripulantes_embarcacao:
     print(item)
 

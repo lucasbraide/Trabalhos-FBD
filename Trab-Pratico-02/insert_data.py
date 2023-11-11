@@ -63,6 +63,7 @@ def insert_tripulantes(tripulantes_dict, cursor):
         cursor.execute("INSERT INTO Tripulantes (nome, data_nasc, funcao, id_emb) VALUES (%s, %s, %s, %s)", (nome, data_nasc, funcao, id_emb))
         print("Tripulante adicionado com sucesso:", item)
     conn.commit()
+
 def insert_empregados(empregados_dict, cursor):
     for key, item in empregados_dict.items():
         nome = item['nome']
