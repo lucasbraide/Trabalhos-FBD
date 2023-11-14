@@ -34,3 +34,13 @@ def insert_empregados(conn, empregados_dict):
     conn.commit()
     cursor.close()
     
+def insert_movimentacoes(conn, movimentacoes_dict):
+    cursor = conn.cursor()
+    for key, item in movimentacoes_dict.items():
+        data =  item['data']
+        tipo = item['tipo']
+        id_emb = item['id_emb']
+        cursor.execute("INSERT INTO Movimentacoes(data, tipo, id_emb) VALUES (%s, %s, %s)", (data, tipo, id_emb))
+        conn.commit()
+        cursor.close()
+
