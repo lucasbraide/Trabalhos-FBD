@@ -41,6 +41,16 @@ def insert_movimentacoes(conn, movimentacoes_dict):
         tipo = item['tipo']
         id_emb = item['id_emb']
         cursor.execute("INSERT INTO Movimentacoes(data, tipo, id_emb) VALUES (%s, %s, %s)", (data, tipo, id_emb))
-        conn.commit()
-        cursor.close()
+        print("Movimentação adicionada com sucesso:", item)
+    conn.commit()
+    cursor.close()
 
+def insert_movimentacoes_empregados(conn, mov_emp_data):
+    cursor= conn.cursor()
+    for item in mov_emp_data:
+        id_mov = item['id_mov']
+        id_emp = item['id_emp']
+        cursor.execute("INSERT INTO Movimentacoes_Empregados (id_mov, id_emp) VALUES (%s, %s)", (id_mov, id_emp))
+        print("Dados inseridos com sucesso na tabela Movimentacoes_Empregados:", item)
+    conn.commit()
+    cursor.close()
