@@ -14,3 +14,13 @@ def query_n_of_tripulantes_emb(conn):
         print(item)
 
     cursor.close()
+
+def query_emp_mov_id1(conn):
+    cursor = conn.cursor()
+
+    #2- Retorne os Empregados envolvidos na movimentação de ID 1.
+
+    cursor.execute("SELECT e.nome FROM Empregados e, JOIN Movimentacoes_Empregados me ON e.id_emp = me.id_emp, WHERE me.id_mov = 1;")
+    emp_mov_id1 = cursor.fetchall()
+    for item in emp_mov_id1:
+        print(item)
