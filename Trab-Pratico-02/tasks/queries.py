@@ -24,3 +24,14 @@ def query_emp_mov_id1(conn):
     emp_mov_id1 = cursor.fetchall()
     for item in emp_mov_id1:
         print(item)
+
+def query_quant_mov_cargueiro(conn):
+    cursor = conn.cursor()
+    #3- Retorne a quantidade de movimentações que envolvem embarcações do tipo 'Cargueiro'.
+
+    cursor.execute("SELECT COUNT(*) as quant FROM Movimentacoes m, JOIN Embarcacoes e ON m.id_emb = e.id_emb, WHERE e.tipo = 'Cargueiro'")
+    quant_mov_cargueiro =  cursor.fetchall()
+
+for item in query_quant_mov_cargueiro:
+    print(item)
+    
