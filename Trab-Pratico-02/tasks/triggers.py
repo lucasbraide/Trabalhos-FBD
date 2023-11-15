@@ -75,6 +75,13 @@ def insert_mov_emp(conn):
     cursor.execute(insert_mov_emp)
     cursor.close()
 
+def insert_new_captains(conn):
+    cursor= conn.cursor()
+    insert_new_caps = """INSERT INTO Tripulantes(id_trp, nome, data_nasc, funcao, id_emb) VALUES 
+                        (7, 'Tripulante7', '1980-09-04', 'Capitão', 4),
+                        (8, 'Tripulante8', '1985-03-03', 'Capitão', 2);
+                         """
+
 def insert_cap_trip3(conn):
     cursor=conn.cursor()
     insert_captain = """UPDATE Tripulantes SET funcao ='Capitão' WHERE nome='Tripulante3';
