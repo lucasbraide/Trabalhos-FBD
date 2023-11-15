@@ -65,3 +65,21 @@ def manutencao_trigger(conn):
 
     if cursor is not None:
         cursor.close()
+
+def insert_mov_emp(conn):
+    cursor = conn.cursor()
+    insert_mov_emp = """INSERT INTO Movimentacoes_Empregados (id_mov,id_emp) VALUES 
+                            (5,5),
+                            (5,2);
+                            """
+    cursor.execute(insert_mov_emp)
+    cursor.close()
+
+def insert_cap_trip3(conn):
+    cursor=conn.cursor()
+    insert_captain = """UPDATE Tripulantes SET funcao ='Capitão' WHERE nome='Tripulante3';
+                     """
+    cursor.execute(insert_captain)
+    cursor.close()
+    cursor.commit()
+
