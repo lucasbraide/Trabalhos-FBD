@@ -47,7 +47,7 @@ def insert_movimentacoes(conn, movimentacoes_dict):
 
 def insert_movimentacoes_empregados(conn, mov_emp_data):
     cursor= conn.cursor()
-    for item in mov_emp_data:
+    for key, item in mov_emp_data.items():
         id_mov = item['id_mov']
         id_emp = item['id_emp']
         cursor.execute("INSERT INTO Movimentacoes_Empregados (id_mov, id_emp) VALUES (%s, %s)", (id_mov, id_emp))

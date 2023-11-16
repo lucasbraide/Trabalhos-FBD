@@ -61,12 +61,17 @@ movimentacoes_empregados = {
 insert_data.insert_navios(conn, navios)
 insert_data.insert_tripulantes(conn, tripulantes)
 insert_data.insert_empregados(conn, empregados)
+insert_data.insert_movimentacoes(conn, movimentacoes)
+insert_data.insert_movimentacoes_empregados(conn, movimentacoes_empregados)
 
 # 2.4 Consultas
 queries.query_n_of_tripulantes_emb(conn)
+queries.query_emp_mov_id1(conn)
+queries.query_quant_mov_cargueiro(conn)
+
 
 # 2.6 Stored Procedure
-# Chamar Stored Procedures.
+stored_procedure.stored_procedure_empregado(conn)
 
 # 2.5 Transação
 transaction.transactions(conn)
@@ -74,3 +79,10 @@ transaction.transactions(conn)
 # 2.7 Triggers
 triggers.captain_trigger(conn)
 triggers.manutencao_trigger(conn)
+triggers.insert_mov_emp(conn)
+triggers.check_tripulantes(conn)
+triggers.insert_new_captains(conn)
+triggers.insert_cap_trip3(conn)
+
+conn.commit()
+conn.close()
